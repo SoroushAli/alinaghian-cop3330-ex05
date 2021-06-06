@@ -3,6 +3,9 @@
  *  Copyright 2021 Soroush Alinaghian
  */
 package Base;
+
+import java.util.Scanner;
+
 /*
 Example Output
 
@@ -27,7 +30,29 @@ Break the program into functions that do the computations.
 Implement this program as a GUI program that automatically updates the values when any value changes.
  */
 public class App {
-    public static void main(String[] args) {
+    static Scanner in = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        String firstInput = readNum();
+        String secondInput = readNum();
+        int firstNum = numConversion(firstInput);
+        int secondNum = numConversion(secondInput);
+        generateOutput(firstInput, secondInput, firstNum, secondNum);
+    }
+
+    private static void generateOutput(String firstInput, String secondInput, int first, int sec) {
+        int add = first + sec;
+        int sub = first - sec;
+        int mult = first * sec;
+        int div = first/sec;
+        System.out.print(String.format("What is the first number? %s\nWhat is the second number? %s\n%d + %d = %d\n%d - %d = %d\n%d * %d = %d\n%d / %d = %d", firstInput, secondInput, first, sec, add, first, sec, sub, first, sec, mult, first, sec, div));
+    }
+
+    private static int numConversion(String input) {
+        return Integer.parseInt(input);
+    }
+
+    private static String readNum() {
+        return in.next();
     }
 }
